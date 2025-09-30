@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <%= link_to "Articles App", root_path, class: "navbar-brand" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "Tous les articles", articles_path, class: "nav-link #{'active' if current_page?(articles_path)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Nouvel article", new_article_path, class: "nav-link #{'active' if current_page?(new_article_path)}" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.email %>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profil", edit_user_registration_path, class: "dropdown-item" %></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Inscription", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

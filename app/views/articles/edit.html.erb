@@ -1,12 +1,17 @@
-<% content_for :title, "Editing article" %>
+<% content_for :title, "Modifier l'article" %>
 
-<h1>Editing article</h1>
-
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to "Show this article", @article %> |
-  <%= link_to "Back to articles", articles_path %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card shadow">
+      <div class="card-header bg-warning text-dark">
+        <h1 class="card-title mb-0">
+          <i class="fas fa-edit"></i>
+          Modifier l'article : "<%= @article.title %>"
+        </h1>
+      </div>
+      <div class="card-body">
+        <%= render "form", article: @article %>
+      </div>
+    </div>
+  </div>
 </div>

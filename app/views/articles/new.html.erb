@@ -1,11 +1,17 @@
-<% content_for :title, "New article" %>
+<% content_for :title, "Nouvel article" %>
 
-<h1>New article</h1>
-
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to "Back to articles", articles_path %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card shadow">
+      <div class="card-header bg-success text-white">
+        <h1 class="card-title mb-0">
+          <i class="fas fa-plus-circle"></i>
+          Créer un nouvel article
+        </h1>
+      </div>
+      <div class="card-body">
+        <%= render "form", article: @article %>
+      </div>
+    </div>
+  </div>
 </div>

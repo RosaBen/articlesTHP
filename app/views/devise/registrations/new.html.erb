@@ -1,0 +1,93 @@
+<% content_for :title, "Inscription" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-lg border-0">
+      <div class="card-header bg-success text-white text-center">
+        <h2 class="card-title mb-0">
+          <i class="fas fa-user-plus me-2"></i>
+          Inscription
+        </h2>
+      </div>
+
+      <div class="card-body p-5">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), local: true, class: "needs-validation", novalidate: true) do |f| %>
+
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="mb-4">
+          <%= f.label :username, "username", class: "form-label fw-bold" %>
+          <%= f.email_field :username, 
+                              autofocus: true, 
+                              autocomplete: "username",
+                              class: "form-control form-control-lg #{'is-invalid' if resource.errors[:username].any?}",
+                              placeholder: "Username",
+                              required: true %>
+          <% if resource.errors[:username].any? %>
+          <div class="invalid-feedback">
+            <%= resource.errors[:username].first %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :email, "Adresse e-mail", class: "form-label fw-bold" %>
+          <%= f.email_field :email, 
+                              autofocus: true, 
+                              autocomplete: "email",
+                              class: "form-control form-control-lg #{'is-invalid' if resource.errors[:email].any?}",
+                              placeholder: "votre@email.com",
+                              required: true %>
+          <% if resource.errors[:email].any? %>
+          <div class="invalid-feedback">
+            <%= resource.errors[:email].first %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password, class: "form-label fw-bold" do %>
+          Mot de passe
+          <% if @minimum_password_length %>
+          <small class="text-muted">(<%= @minimum_password_length %> caractères minimum)</small>
+          <% end %>
+          <% end %>
+          <%= f.password_field :password, 
+                                autocomplete: "new-password",
+                                class: "form-control form-control-lg #{'is-invalid' if resource.errors[:password].any?}",
+                                placeholder: "Choisissez un mot de passe sécurisé",
+                                required: true %>
+          <% if resource.errors[:password].any? %>
+          <div class="invalid-feedback">
+            <%= resource.errors[:password].first %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "Confirmation du mot de passe", class: "form-label fw-bold" %>
+          <%= f.password_field :password_confirmation, 
+                                autocomplete: "new-password",
+                                class: "form-control form-control-lg #{'is-invalid' if resource.errors[:password_confirmation].any?}",
+                                placeholder: "Confirmez votre mot de passe",
+                                required: true %>
+          <% if resource.errors[:password_confirmation].any? %>
+          <div class="invalid-feedback">
+            <%= resource.errors[:password_confirmation].first %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="d-grid mb-4">
+          <%= f.submit "Créer mon compte", class: "btn btn-success btn-lg" %>
+        </div>
+        <% end %>
+
+        <hr class="my-4">
+
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

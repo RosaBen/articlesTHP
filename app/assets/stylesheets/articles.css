@@ -1,0 +1,91 @@
+/* Styles pour les informations d'auteur des articles */
+
+.author-info {
+  color: #6c757d !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.author-info i {
+  color: #007bff;
+  font-size: 0.8rem;
+}
+
+.article-author-header {
+  opacity: 0.9;
+}
+
+.article-author-header i {
+  color: #ffffff;
+  margin-right: 0.25rem;
+}
+
+/* Style pour les cartes d'articles */
+.article-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+}
+
+.article-card .card {
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.article-card .card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Amélioration du style du footer de carte */
+.card-footer.bg-transparent {
+  background-color: #f8f9fa !important;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Style responsive pour les informations d'auteur */
+@media (max-width: 768px) {
+  .author-info {
+    font-size: 0.8rem;
+  }
+  
+  .article-author-header {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation pour le compteur d'articles */
+#article-count {
+  transition: all 0.3s ease;
+}
+
+#article-count.updated {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #28a745 !important;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Style pour les boutons d'action dans la vue show */
+.card-footer .btn {
+  margin: 0.2rem;
+}
+
+.card-footer .d-flex {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

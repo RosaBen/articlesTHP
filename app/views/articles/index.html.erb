@@ -25,11 +25,12 @@
         <p class="card-text"><%= truncate(article.content, length: 50) %></p>
       </div>
       <div class="card-footer bg-transparent">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <small class="text-muted author-info">
+            <i class="fas fa-user"></i> Par <%= getUserName(article.user_id) %>
+          </small>
+        </div>
         <%= link_to "Voir l'article", article, class: "btn btn-outline-primary btn-sm" %>
-        <%= link_to "Éditer", edit_article_path(article), class: "btn btn-outline-secondary btn-sm" %>
-        <%= link_to "Supprimer", article_path(article), method: :delete,
-                      confirm: "Êtes-vous sûr ?", 
-                      class: "btn btn-outline-danger btn-sm" %>
       </div>
     </div>
   </div>

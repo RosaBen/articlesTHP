@@ -20,3 +20,5 @@ const countClick = () => {
 };
 
 countBtn.addEventListener('click', countClick);
+
+

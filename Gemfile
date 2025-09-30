@@ -63,3 +63,7 @@ group :test do
 end
 
 gem "faker"
+
+gem "devise-jwt"
+gem "devise", "~> 4.9"
+gem "rack-cors", "~> 3.0"

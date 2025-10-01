@@ -17,8 +17,8 @@
 <% end %>
 
 <div class="col-12">
-  <%= form.label :title, "Titre", class: "form-label" %>
-  <%= form.text_field :title, class: "form-control #{'is-invalid' if article.errors[:title].any?}", placeholder: "Entrez le titre de votre article" %>
+  <%= form.label :title, "Title", class: "form-label" %>
+  <%= form.text_field :title, class: "form-control #{'is-invalid' if article.errors[:title].any?}", placeholder: "Enter the title of your article" %>
   <% if article.errors[:title].any? %>
   <div class="invalid-feedback">
     <%= article.errors[:title].first %>
@@ -27,8 +27,8 @@
 </div>
 
 <div class="col-12">
-  <%= form.label :content, "Contenu", class: "form-label" %>
-  <%= form.text_area :content, class: "form-control #{'is-invalid' if article.errors[:content].any?}", rows: 8, placeholder: "Rédigez le contenu de votre article ici..." %>
+  <%= form.label :content, "Content", class: "form-label" %>
+  <%= form.text_area :content, class: "form-control #{'is-invalid' if article.errors[:content].any?}", rows: 8, placeholder: "Write the content of your article here..." %>
   <% if article.errors[:content].any? %>
   <div class="invalid-feedback">
     <%= article.errors[:content].first %>
@@ -37,15 +37,27 @@
 </div>
 
 <div class="col-12">
+  <%= form.label :photo, "Photo", class: "form-label" %>
+  <%= form.file_field :photo, class: "form-control #{'is-invalid' if article.errors[:photo].any?}" , multiple: true , direct_upload: true %>
+  <% if article.errors[:photo].any? %>
+  <div class="invalid-feedback">
+    <%= article.errors[:photo].first %>
+  </div>
+  <% end %>
+</div>
+<% end %>
+</div>
+
+<div class="col-12">
   <div class="d-flex gap-2">
-    <%= form.submit article.persisted? ? "Mettre à jour l'article" : "Créer l'article", 
+    <%= form.submit article.persisted? ? "Update article" : "Create article", 
                       class: "btn btn-primary" %>
-    <%= link_to "Annuler", article.persisted? ? article : articles_path, 
+    <%= link_to "Cancel", article.persisted? ? article : articles_path, 
                   class: "btn btn-secondary" %>
   </div>
   <div class="form-check">
     <%= form.check_box :is_private, class: "form-check-input", id: "article_is_private" %>
-    <%= form.label :is_private, "Article privé", class: "form-check-label", for: "article_is_private" %>
+    <%= form.label :is_private, "Private article", class: "form-check-label", for: "article_is_private" %>
   </div>
 </div>
 <% end %>

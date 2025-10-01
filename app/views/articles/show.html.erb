@@ -11,7 +11,14 @@
       </div>
       <div class="card-body">
         <div class="article-content">
-          <%= simple_format(@article.content) %>
+          <%= @article.content %>
+          <% if @article.photos.attached? %>
+          <div class="article-photos">
+            <% @article.photos.each do |photo| %>
+            <%= image_tag photo.variant(resize_to_limit: [500, 500]) %>
+            <% end %>
+          </div>
+          <% end %>
         </div>
       </div>
       <div class="card-footer bg-light">

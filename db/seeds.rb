@@ -22,6 +22,7 @@ allUsers = User.all
   Article.create!(
     title: Faker::Book.title,
     content: Faker::JapaneseMedia::StudioGhibli.quote + " " + Faker::TvShows::Friends.quote + " " + Faker::TvShows::SouthPark.quote,
-    user: allUsers.sample
+    user: allUsers.sample,
+    is_private: [true, false].sample
   )
 end

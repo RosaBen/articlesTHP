@@ -26,21 +26,31 @@
 <body>
   <%= render 'shared/navbar' %>
 
-  <div class="container mt-4">
+  <!-- Alertes personnalisées -->
+  <div class="alerts-container" data-controller="alerts">
     <% if notice %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= notice %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="custom-alert custom-alert-success" id="notice-alert" data-alerts-target="alert">
+      <span class="alert-message"><%= notice %></span>
+      <button type="button" class="alert-close-btn" aria-label="Fermer" data-action="click->alerts#close">×</button>
+    </div>
+    <% end %>
+
+    <% if flash[:warning] %>
+    <div class="custom-alert custom-alert-warning" id="warning-alert" data-alerts-target="alert">
+      <span class="alert-message"><%= flash[:warning] %></span>
+      <button type="button" class="alert-close-btn" aria-label="Fermer" data-action="click->alerts#close">×</button>
     </div>
     <% end %>
 
     <% if alert %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= alert %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="custom-alert custom-alert-danger" id="alert-alert" data-alerts-target="alert">
+      <span class="alert-message"><%= alert %></span>
+      <button type="button" class="alert-close-btn" aria-label="Fermer" data-action="click->alerts#close">×</button>
     </div>
     <% end %>
+  </div>
 
+  <div class="container mt-4">
     <%= yield %>
   </div>
 </body>

@@ -1,8 +1,11 @@
 <% content_for :title, "Articles" %>
 
+
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h1 class="display-4">Articles</h1>
+  <% if signed_in? && !params[:just_signed_in] %>
   <%= link_to "Nouvel article", new_article_path, class: "btn btn-primary btn-lg" %>
+  <% end %>
 </div>
 
 

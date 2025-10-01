@@ -28,4 +28,50 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  articles:
+    notices:
+      created: "Article was successfully created."
+      updated: "Article was successfully updated."
+      deleted: "Article was successfully deleted."
+      access_denied: "Access denied. You can only edit your own articles."
+      not_found: "Article not found."
+      private_notice: "This article is private and can only be viewed by its author."
+  views:
+    articles:
+      index:
+        title: "Articles"
+        new_article: "New Article"
+        count_articles: "Count Articles"
+        no_articles: "No articles found"
+        articles_found:
+          zero: "No articles found"
+          one: "1 article found"
+          other: "%{count} articles found"
+      show:
+        edit: "Edit"
+        back: "Back to Articles"
+        delete: "Delete"
+        confirm_delete: "Are you sure you want to delete this article?"
+        private_article: "Private Article"
+        by_author: "By %{author}"
+      form:
+        title_label: "Title"
+        content_label: "Content"
+        is_private_label: "Make this article private"
+        submit_create: "Create Article"
+        submit_update: "Update Article"
+      edit:
+        title: "Edit Article"
+        cancel: "Cancel"
+      new:
+        title: "New Article"
+  helpers:
+    submit:
+      article:
+        create: "Create Article"
+        update: "Update Article"
+    label:
+      article:
+        title: "Title"
+        content: "Content"
+        is_private: "Private Article"

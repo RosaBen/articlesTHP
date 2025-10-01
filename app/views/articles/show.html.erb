@@ -29,6 +29,7 @@
         </div>
       </div>
       <div>
+        <% if @article.comments.any? %>
         <h2>Comments</h2>
         <% @article.comments.each do |comment| %>
         <div class="comment">
@@ -38,19 +39,22 @@
           <%= link_to "Edit", edit_article_comment_path(@article, comment), class: "btn btn-warning" %>
           <%= button_to "Delete", article_comment_path(@article, comment), method: :delete, data: { confirm: "Do you still want to delete this comment?" }, class: "btn btn-danger" %>
           <% end %>
+          <% end %>
         </div>
         <% end %>
+        <% if user_signed_in? %>
         <h3>Add a comment</h3>
+
         <%= form_with(model: [@article, Comment.new]) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: "form-control" %><br>
         </div>
         <div class="form-group">
-          <%= f.submit "send", class: "btn btn-primary" %>
+          <%= f.submit "Send", class: "btn btn-primary" %>
         </div>
+        <% end %>
         <% end %>
       </div>
     </div>
   </div>
-</div>
 </div>

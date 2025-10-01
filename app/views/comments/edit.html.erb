@@ -1,0 +1,14 @@
+<h2>Edit Comment</h2>
+
+<%= form_with model: [@article, @comment], local: true do |form| %>
+<div class="field">
+  <%= form.label :content, "Content" %>
+  <%= form.text_area :content, rows: 4, class: "form-control" %>
+</div>
+</div>
+
+<div class="actions">
+  <%= form.submit "Update", class: "btn btn-primary" %>
+  <%= link_to "Cancel", @article, class: "btn btn-secondary" %>
+</div>
+<% end %>

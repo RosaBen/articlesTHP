@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h1 class="display-4">Articles</h1>
   <% if signed_in? && !params[:just_signed_in] %>
-  <%= link_to "Nouvel article", new_article_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "New Article", new_article_path, class: "btn btn-primary btn-lg" %>
   <% end %>
 </div>
 
@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-12 mb-3">
     <button id="count-articles" class="btn btn-info" type="button">
-      <i class="fas fa-calculator"></i> Compter les articles
+      <i class="fas fa-calculator"></i> Count Articles
     </button>
     <span id="article-count" class="ms-3 badge bg-secondary fs-6"></span>
   </div>
@@ -30,10 +30,10 @@
       <div class="card-footer bg-transparent">
         <div class="d-flex justify-content-between align-items-center mb-2">
           <small class="text-muted author-info">
-            <i class="fas fa-user"></i> Par <%= getUserName(article.user_id) %>
+            <i class="fas fa-user"></i> By <%= getUserName(article.user_id) %>
           </small>
         </div>
-        <%= link_to "Voir l'article", article, class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "View Article", article, class: "btn btn-outline-primary btn-sm" %>
       </div>
     </div>
   </div>
